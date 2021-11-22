@@ -112,6 +112,12 @@ public class ActivityResultModule extends ReactContextBaseJavaModule implements 
       }
   }
 
+  @ReactMethod
+  public void getCallingPackage(Promise promise) {
+      Activity activity = getReactApplicationContext().getCurrentActivity();
+      promise.resolve(activity.getCallingPackage());
+  }
+
   @Override
   public void onNewIntent(Intent intent) {
       /* Do nothing */
